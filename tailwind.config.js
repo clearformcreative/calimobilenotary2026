@@ -9,11 +9,14 @@ module.exports = {
   extend: {
     colors: {
       brand: {
-        ink: "var(--color-brand-ink)",
-        champagne: "var(--color-brand-champagne)",
-        sand: "var(--color-brand-sand)",
-        ivory: "var(--color-brand-ivory)"
-      }
+      ink: "var(--color-brand-ink)",
+      ivory: "var(--color-brand-ivory)",
+      stone: "var(--color-brand-stone)",
+      taupe: "var(--color-brand-taupe)",
+      champagne: "var(--color-brand-champagne)",
+      "champagne-soft": "var(--color-brand-champagne-soft)",
+      mist: "var(--color-brand-mist)",
+      shadow: "var(--color-brand-shadow)"
     }
   }
 }
