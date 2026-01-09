@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -116,7 +117,7 @@ const reputationMarks = [
 
 const iconClassName = "h-6 w-6 text-brand-champagne";
 
-const serviceIcons: Record<string, JSX.Element> = {
+const serviceIcons: Record<string, React.ReactNode> = {
   "real-estate-documents": (
     <svg viewBox="0 0 24 24" className={iconClassName} aria-hidden="true">
       <path
