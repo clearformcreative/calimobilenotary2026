@@ -13,19 +13,6 @@
   --color-brand-shadow: #5f564f;
 }
 
-@theme inline {
-  --color-brand-ink: var(--color-brand-ink);
-  --color-brand-ivory: var(--color-brand-ivory);
-  --color-brand-stone: var(--color-brand-stone);
-  --color-brand-taupe: var(--color-brand-taupe);
-  --color-brand-champagne: var(--color-brand-champagne);
-  --color-brand-champagne-soft: var(--color-brand-champagne-soft);
-  --color-brand-mist: var(--color-brand-mist);
-  --color-brand-shadow: var(--color-brand-shadow);
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-}
-
 html {
   scroll-behavior: smooth;
 }
