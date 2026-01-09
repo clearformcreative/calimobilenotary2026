@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss";
-
 :root {
   --color-brand-ink: #2b2622;
   --color-brand-ivory: #f7f2eb;
