@@ -5,8 +5,19 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}"
   ],
-  theme: {
-    extend: {}
+ theme: {
+  extend: {
+    colors: {
+      brand: {
+        ink: "var(--color-brand-ink)",
+        champagne: "var(--color-brand-champagne)",
+        sand: "var(--color-brand-sand)",
+        ivory: "var(--color-brand-ivory)"
+      }
+    }
+  }
+}
+
   },
   plugins: []
 };
