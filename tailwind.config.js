@@ -9,7 +9,7 @@ module.exports = {
 safelist: [
   { pattern: /^(bg|text|border|ring|from|via|to)-brand-(ink|ivory|stone|taupe|champagne|champagne-soft|mist|shadow)(\/\d+)?$/ },
   { pattern: /^bg-black\/\d+$/ }
-]
+],
 
   
   theme: {
