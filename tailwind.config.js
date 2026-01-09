@@ -1,17 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}"
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  safelist: [
+    { pattern: /.*/ }
   ],
-
-safelist: [
-  { pattern: /^(bg|text|border|ring|from|via|to)-brand-(ink|ivory|stone|taupe|champagne|champagne-soft|mist|shadow)(\/\d+)?$/ },
-  { pattern: /^bg-black\/\d+$/ }
-],
-
-  
   theme: {
     extend: {
       colors: {
