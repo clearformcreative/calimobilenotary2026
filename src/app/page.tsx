@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,6 +6,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { FadeIn } from "@/components/FadeIn";
 import {
   certificationBadges,
+  faqs,
   pricingNotes,
   pricingPackages,
   processSteps,
@@ -204,20 +206,34 @@ function ArrowIcon({ className }: { className?: string }) {
 }
 
 export default function Home() {
-  const structuredData = {
+  // Enhanced LocalBusiness schema with reviews
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `https://${siteInfo.domain}/#business`,
     name: siteInfo.name,
+    description: siteInfo.tagline,
     url: `https://${siteInfo.domain}`,
     telephone: siteInfo.phoneHref.replace("tel:", ""),
     email: siteInfo.email,
+    image: `https://${siteInfo.domain}/logo.png`,
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Los Angeles",
       addressRegion: "CA",
+      postalCode: "91301",
       addressCountry: "US",
     },
-    areaServed: siteInfo.serviceAreas,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 34.1425,
+      longitude: -118.7629,
+    },
+    areaServed: siteInfo.serviceAreas.map((area) => ({
+      "@type": "City",
+      name: area,
+    })),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -233,13 +249,86 @@ export default function Home() {
       },
     ],
     sameAs: Object.values(siteInfo.social),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: siteInfo.reviewSummary.rating,
+      reviewCount: siteInfo.reviewSummary.count.replace("+", ""),
+      bestRating: "5",
+    },
+    review: testimonials.map((t) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: t.name },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewBody: t.quote,
+    })),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Mobile Notary Services",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.title,
+          description: service.description,
+        },
+      })),
+    },
+  };
+
+  // FAQ Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  // Service Schema
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Mobile Notary Services",
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteInfo.name,
+      url: `https://${siteInfo.domain}`,
+    },
+    areaServed: {
+      "@type": "State",
+      name: "California",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Notary Packages",
+      itemListElement: pricingPackages.map((pkg) => ({
+        "@type": "Offer",
+        name: pkg.title,
+        price: pkg.price.replace("$", ""),
+        priceCurrency: "USD",
+        description: pkg.details,
+      })),
+    },
   };
 
   return (
     <div className="text-brand-ink">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <section className="relative flex min-h-[92vh] items-center overflow-hidden">
         <Image
