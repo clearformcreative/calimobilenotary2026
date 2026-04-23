@@ -18,9 +18,57 @@ export async function generateMetadata({ params }: ServicePageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
 
+  const serviceKeywords: Record<string, string[]> = {
+    "power-of-attorney": [
+      "power of attorney notary Los Angeles",
+      "POA notary service",
+      "durable power of attorney notary",
+      "healthcare POA notary",
+      "mobile POA notary",
+    ],
+    "trusts-and-wills": [
+      "trust notary Los Angeles",
+      "will notary service",
+      "living trust notary",
+      "estate planning notary",
+      "mobile trust notary",
+    ],
+    "healthcare-directives": [
+      "healthcare directive notary",
+      "advance directive notary Los Angeles",
+      "medical directive notary",
+      "living will notary",
+      "healthcare proxy notary",
+    ],
+    "i-9-verification": [
+      "I-9 verification Los Angeles",
+      "I-9 authorized representative",
+      "remote I-9 notary",
+      "employment verification notary",
+      "I-9 form notary",
+    ],
+    "business-notary-support": [
+      "business notary Los Angeles",
+      "corporate notary service",
+      "on-site business notary",
+      "bulk document notary",
+      "commercial notary service",
+    ],
+  };
+
   return {
-    title: `${service.title} | Cali Mobile Notary`,
-    description: service.description,
+    title: `${service.title} Notary Service Los Angeles | Cali Mobile Notary`,
+    description: `${service.description} Mobile service across Los Angeles. Same-day appointments available. Call (323) 364-2121.`,
+    keywords: serviceKeywords[slug] || [],
+    alternates: {
+      canonical: `https://www.calimobilenotary.com/services/${slug}`,
+    },
+    openGraph: {
+      title: `${service.title} | Mobile Notary Los Angeles`,
+      description: service.description,
+      url: `https://www.calimobilenotary.com/services/${slug}`,
+      type: "website",
+    },
   };
 }
 
@@ -57,7 +105,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href={siteInfo.bookingUrl}
+              href="/#book"
               className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
             >
               Book an Appointment
@@ -127,7 +175,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href={siteInfo.bookingUrl}
+                  href="/#book"
                   className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
                 >
                   Book an Appointment

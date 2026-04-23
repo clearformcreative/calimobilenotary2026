@@ -105,7 +105,7 @@ export function Header() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <a
-            href={siteInfo.bookingUrl}
+            href="/#book"
             className="rounded-sm border border-brand-champagne/70 px-5 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-brand-ink shadow-sm transition hover:border-brand-champagne hover:text-brand-champagne"
           >
             Book Appointment

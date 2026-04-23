@@ -3,14 +3,17 @@ export const siteInfo = {
   domain: "www.calimobilenotary.com",
   tagline:
     "Premium mobile notary services with concierge care across Southern California.",
-  phoneDisplay: "(310) 555-0192",
-  phoneHref: "tel:+13105550192",
+  phoneDisplay: "(323) 364-2121",
+  phoneHref: "tel:+13233642121",
   email: "hello@calimobilenotary.com",
   address: "Serving Greater Los Angeles, CA",
-  bookingUrl: "https://booking.example.com",
+  bookingUrl: "https://cal.com/cali-mobile-notary/appointment",
+  calUsername: "cali-mobile-notary",
+  calEventSlug: "appointment",
   hours: {
-    weekday: "Mon - Fri: 7:00AM - 8:00PM",
-    weekend: "Sat - Sun: 8:00AM - 6:00PM",
+    weekday: "Mon - Thurs: 7:00AM - 11:00PM",
+    friday: "Friday: 7:00AM - 5:00PM",
+    weekend: "Sat - Sun: 7:00AM - 11:00PM",
     emergency: "Same-day appointments available",
   },
   credentials: {
@@ -39,7 +42,7 @@ export const siteInfo = {
     "Glendale",
     "Orange County",
   ],
-  formAction: "https://usebasin.com/f/your-form-id",
+  formAction: "https://usebasin.com/f/80d08e3e28bc",
   social: {
     google: "https://g.page/r/your-profile",
     yelp: "https://www.yelp.com/biz/your-profile",
@@ -125,15 +128,6 @@ export const certificationBadges = [
 ];
 
 export const services: Service[] = [
-  {
-    slug: "real-estate-documents",
-    title: "Real Estate Documents",
-    description:
-      "Mobile notarization for escrow, title, and real estate documentation with precise handling.",
-    highlights: ["Escrow docs", "Grant deeds", "Seller affidavits"],
-    heroImage:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80",
-  },
   {
     slug: "power-of-attorney",
     title: "Power of Attorney",

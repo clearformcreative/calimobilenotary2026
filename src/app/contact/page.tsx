@@ -1,5 +1,28 @@
+import type { Metadata } from "next";
+
 import { ContactSection } from "@/components/ContactSection";
 import { siteInfo } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Mobile Notary Los Angeles",
+  description:
+    "Contact Cali Mobile Notary for mobile notary services in Los Angeles. Book online or call (323) 364-2121. Same-day appointments available.",
+  keywords: [
+    "contact mobile notary",
+    "notary phone number Los Angeles",
+    "book notary appointment",
+    "mobile notary contact",
+  ],
+  alternates: {
+    canonical: "https://www.calimobilenotary.com/contact",
+  },
+  openGraph: {
+    title: "Contact Cali Mobile Notary | Los Angeles",
+    description:
+      "Get in touch for mobile notary services. Book online or call (323) 364-2121.",
+    url: "https://www.calimobilenotary.com/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -18,7 +41,7 @@ export default function ContactPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href={siteInfo.bookingUrl}
+              href="/#book"
               className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
             >
               Book an Appointment

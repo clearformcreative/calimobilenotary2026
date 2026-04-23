@@ -24,29 +24,67 @@ const bodyFont = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.calimobilenotary.com"),
   title: {
-    default: "Cali Mobile Notary | Premium Mobile Notary Services",
+    default: "Mobile Notary Los Angeles | Cali Mobile Notary | Same-Day Service",
     template: "%s | Cali Mobile Notary",
   },
   description:
-    "Premium mobile notary services with concierge care across Southern California. Book an appointment or call for same-day availability.",
+    "Mobile notary services in Los Angeles & Southern California. Same-day appointments, travel to you. POA, trusts, I-9 verification. Call (323) 364-2121.",
+  keywords: [
+    "mobile notary Los Angeles",
+    "notary public near me",
+    "mobile notary service",
+    "traveling notary",
+    "notary public Los Angeles",
+    "mobile notary Santa Monica",
+    "mobile notary Beverly Hills",
+    "mobile notary Pasadena",
+    "same day notary",
+    "power of attorney notary",
+    "trust notary",
+    "I-9 verification",
+    "notary signing agent",
+    "mobile notary Southern California",
+  ],
   applicationName: "Cali Mobile Notary",
+  authors: [{ name: "Cali Mobile Notary" }],
+  creator: "Cali Mobile Notary",
+  publisher: "Cali Mobile Notary",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.calimobilenotary.com",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo.png",
   },
   openGraph: {
-    title: "Cali Mobile Notary | Premium Mobile Notary Services",
+    title: "Mobile Notary Los Angeles | Cali Mobile Notary",
     description:
-      "Concierge mobile notary services across Greater Los Angeles with clear packages and same-day availability.",
+      "Premium mobile notary services across Greater Los Angeles. Same-day appointments, clear pricing, we travel to you. Call (323) 364-2121.",
     url: "https://www.calimobilenotary.com",
     siteName: "Cali Mobile Notary",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Cali Mobile Notary - Mobile Notary Services in Los Angeles",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cali Mobile Notary | Premium Mobile Notary Services",
+    title: "Mobile Notary Los Angeles | Cali Mobile Notary",
     description:
-      "Concierge mobile notary services across Greater Los Angeles with clear packages and same-day availability.",
+      "Premium mobile notary services across Greater Los Angeles. Same-day appointments, we travel to you.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -58,6 +96,12 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-video-preview": -1,
     },
+  },
+  other: {
+    "geo.region": "US-CA",
+    "geo.placename": "Los Angeles",
+    "geo.position": "34.0522;-118.2437",
+    ICBM: "34.0522, -118.2437",
   },
 };
 

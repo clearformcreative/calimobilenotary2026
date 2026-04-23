@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { ContactSection } from "@/components/ContactSection";
 import {
   certificationBadges,
@@ -5,6 +7,28 @@ import {
   pricingPackages,
   siteInfo,
 } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Mobile Notary Pricing | Clear Packages from $85",
+  description:
+    "Transparent mobile notary pricing in Los Angeles. Packages from $85 include travel within service area. No hidden fees. Call (323) 364-2121 for a quote.",
+  keywords: [
+    "mobile notary cost",
+    "notary fees Los Angeles",
+    "mobile notary pricing",
+    "notary service rates",
+    "affordable mobile notary",
+  ],
+  alternates: {
+    canonical: "https://www.calimobilenotary.com/pricing",
+  },
+  openGraph: {
+    title: "Mobile Notary Pricing | Cali Mobile Notary",
+    description:
+      "Clear, upfront pricing for mobile notary services. Packages from $85 with travel included.",
+    url: "https://www.calimobilenotary.com/pricing",
+  },
+};
 
 export default function PricingPage() {
   return (
@@ -24,7 +48,7 @@ export default function PricingPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href={siteInfo.bookingUrl}
+              href="/#book"
               className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
             >
               Book an Appointment

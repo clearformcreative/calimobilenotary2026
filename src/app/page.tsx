@@ -2,6 +2,7 @@ import type { JSX } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { CalEmbed } from "@/components/CalEmbed";
 import { ContactSection } from "@/components/ContactSection";
 import { FadeIn } from "@/components/FadeIn";
 import {
@@ -119,24 +120,6 @@ const reputationMarks = [
 const iconClassName = "h-6 w-6 text-brand-champagne";
 
 const serviceIcons: Record<string, JSX.Element> = {
-  "real-estate-documents": (
-    <svg viewBox="0 0 24 24" className={iconClassName} aria-hidden="true">
-      <path
-        d="M4 11l8-6 8 6v8H4z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M9 19v-5h6v5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>
-  ),
   "power-of-attorney": (
     <svg viewBox="0 0 24 24" className={iconClassName} aria-hidden="true">
       <circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" strokeWidth="1.6" />
@@ -237,15 +220,21 @@ export default function Home() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
         opens: "07:00",
-        closes: "20:00",
+        closes: "23:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Friday"],
+        opens: "07:00",
+        closes: "17:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Saturday", "Sunday"],
-        opens: "08:00",
-        closes: "18:00",
+        opens: "07:00",
+        closes: "23:00",
       },
     ],
     sameAs: Object.values(siteInfo.social),
@@ -361,7 +350,7 @@ export default function Home() {
             <FadeIn delay={0.24}>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href={siteInfo.bookingUrl}
+                  href="#book"
                   className="rounded-sm bg-brand-champagne px-7 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
                 >
                   Book an Appointment
@@ -682,7 +671,7 @@ export default function Home() {
               <div className="mt-3 h-1 w-20 bg-brand-champagne" />
             </div>
             <a
-              href={siteInfo.bookingUrl}
+              href="#book"
               className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.12em] text-brand-ink transition hover:text-brand-champagne"
             >
               Book an Appointment
@@ -721,7 +710,7 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href={siteInfo.bookingUrl}
+                  href="#book"
                   className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
                 >
                   Book an Appointment
@@ -737,6 +726,8 @@ export default function Home() {
           </div>
         </div>
       </FadeIn>
+
+      <CalEmbed />
 
       <ContactSection />
     </div>

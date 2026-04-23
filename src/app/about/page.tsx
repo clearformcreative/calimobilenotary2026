@@ -1,9 +1,32 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import { ContactSection } from "@/components/ContactSection";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { ServiceAreaSection } from "@/components/ServiceAreaSection";
 import { siteInfo } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "About Us | Mobile Notary Los Angeles",
+  description:
+    "Cali Mobile Notary delivers discreet, concierge-level mobile notary service across Los Angeles. Bonded, insured & background checked. Call (323) 364-2121.",
+  keywords: [
+    "mobile notary Los Angeles",
+    "about Cali Mobile Notary",
+    "licensed notary public",
+    "bonded insured notary",
+    "professional notary service",
+  ],
+  alternates: {
+    canonical: "https://www.calimobilenotary.com/about",
+  },
+  openGraph: {
+    title: "About Cali Mobile Notary | Los Angeles",
+    description:
+      "Premium mobile notary services built on trust. Bonded, insured & background checked.",
+    url: "https://www.calimobilenotary.com/about",
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -30,7 +53,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href={siteInfo.bookingUrl}
+              href="/#book"
               className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
             >
               Book an Appointment

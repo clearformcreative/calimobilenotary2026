@@ -1,8 +1,31 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 import { ContactSection } from "@/components/ContactSection";
 import { services, siteInfo } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Mobile Notary Services | POA, Trusts & More",
+  description:
+    "Mobile notary services in Los Angeles: power of attorney, trusts & wills, healthcare directives, I-9 verification, business notary. Call (323) 364-2121.",
+  keywords: [
+    "mobile notary services",
+    "power of attorney notary",
+    "trust notary service",
+    "I-9 verification notary",
+    "business notary Los Angeles",
+  ],
+  alternates: {
+    canonical: "https://www.calimobilenotary.com/services",
+  },
+  openGraph: {
+    title: "Mobile Notary Services | Cali Mobile Notary",
+    description:
+      "Full range of mobile notary services: POA, trusts, healthcare directives & more.",
+    url: "https://www.calimobilenotary.com/services",
+  },
+};
 
 export default function ServicesPage() {
   return (
@@ -29,7 +52,7 @@ export default function ServicesPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href={siteInfo.bookingUrl}
+              href="/#book"
               className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-[0_18px_45px_rgba(199,166,106,0.35)] transition hover:bg-brand-champagne-soft hover:shadow-[0_22px_60px_rgba(199,166,106,0.45)]"
             >
               Book an Appointment

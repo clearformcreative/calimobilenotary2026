@@ -20,7 +20,7 @@ export function ContactSection() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <TrackedBookingLink
-              href={siteInfo.bookingUrl}
+              href="/#book"
               className="rounded-sm bg-brand-champagne px-6 py-3 text-sm font-semibold tracking-[0.12em] text-brand-ink shadow-lg shadow-brand-champagne/30 transition hover:bg-brand-champagne-soft"
             >
               Book an Appointment
@@ -37,6 +37,7 @@ export function ContactSection() {
             <p className="text-base font-semibold text-brand-ivory">{siteInfo.name}</p>
             <p>{siteInfo.address}</p>
             <p>{siteInfo.hours.weekday}</p>
+            <p>{siteInfo.hours.friday}</p>
             <p>{siteInfo.hours.weekend}</p>
             <p className="text-brand-champagne">{siteInfo.hours.emergency}</p>
             <TrackedPhoneLink href={siteInfo.phoneHref} className="block text-lg text-brand-ivory">
