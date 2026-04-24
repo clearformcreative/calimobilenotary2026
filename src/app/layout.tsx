@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { Manrope, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 
+import { Analytics } from "@/components/Analytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { StickyCallBar } from "@/components/StickyCallBar";
 import "./globals.css";
 
 const GTM_ID = "GTM-KRTK55Q3";
@@ -138,8 +141,11 @@ export default function RootLayout({
         </noscript>
         <Header />
         <ScrollToTop />
-        <main className="pt-24">{children}</main>
+        <main className="pt-24 pb-16 md:pb-0">{children}</main>
         <Footer />
+        <StickyCallBar />
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   );

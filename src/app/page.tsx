@@ -237,7 +237,6 @@ export default function Home() {
         closes: "23:00",
       },
     ],
-    sameAs: Object.values(siteInfo.social),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: siteInfo.reviewSummary.rating,

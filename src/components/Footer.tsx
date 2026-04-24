@@ -42,6 +42,12 @@ export function Footer() {
             <Link href="/contact" className="transition hover:text-brand-champagne">
               Contact
             </Link>
+            <Link href="/privacy" className="transition hover:text-brand-champagne">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="transition hover:text-brand-champagne">
+              Terms of Service
+            </Link>
           </div>
         </div>
 
@@ -80,20 +86,8 @@ export function Footer() {
           </div>
           <div className="mt-5 space-y-2 text-xs uppercase tracking-[0.2em] text-brand-champagne">
             <p>{siteInfo.credentials.commission}</p>
-            <p>{siteInfo.credentials.license}</p>
             <p>{siteInfo.credentials.bondedInsured}</p>
             <p>{siteInfo.credentials.backgroundChecked}</p>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand-ivory/70">
-            {Object.entries(siteInfo.social).map(([label, url]) => (
-              <a
-                key={label}
-                href={url}
-                className="rounded-sm border border-brand-ivory/20 px-3 py-1 transition hover:text-brand-champagne"
-              >
-                {label}
-              </a>
-            ))}
           </div>
         </div>
       </div>

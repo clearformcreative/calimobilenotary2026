@@ -9,6 +9,8 @@ export async function GET() {
     { url: `${baseUrl}/pricing`, changefreq: "weekly", priority: "0.8" },
     { url: `${baseUrl}/about`, changefreq: "monthly", priority: "0.6" },
     { url: `${baseUrl}/contact`, changefreq: "monthly", priority: "0.6" },
+    { url: `${baseUrl}/privacy`, changefreq: "yearly", priority: "0.3" },
+    { url: `${baseUrl}/terms`, changefreq: "yearly", priority: "0.3" },
   ];
 
   const servicePages = services.map((service) => ({

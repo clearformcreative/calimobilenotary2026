@@ -17,8 +17,7 @@ export const siteInfo = {
     emergency: "Same-day appointments available",
   },
   credentials: {
-    commission: "California Notary Commission #TBD",
-    license: "Notary License #TBD",
+    commission: "California Notary Commission #2439447",
     bondedInsured: "Bonded & Insured",
     backgroundChecked: "Background Checked",
     experience: "10+ Years Experience",
@@ -43,11 +42,6 @@ export const siteInfo = {
     "Orange County",
   ],
   formAction: "https://usebasin.com/f/80d08e3e28bc",
-  social: {
-    google: "https://g.page/r/your-profile",
-    yelp: "https://www.yelp.com/biz/your-profile",
-    instagram: "https://www.instagram.com/your-profile",
-  },
 };
 
 export type Service = {
