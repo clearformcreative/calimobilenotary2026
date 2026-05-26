@@ -9,7 +9,7 @@ import { siteInfo } from "@/content/site";
 export const metadata: Metadata = {
   title: "About Us | Mobile Notary Los Angeles",
   description:
-    "Cali Mobile Notary delivers discreet, concierge-level mobile notary service across Los Angeles. Bonded, insured & background checked. Call (323) 364-2121.",
+    "Cali Mobile Notary delivers discreet, concierge-level mobile notary service across Los Angeles. Bonded, insured & background checked. Call (818) 422-4420.",
   keywords: [
     "mobile notary Los Angeles",
     "about Cali Mobile Notary",

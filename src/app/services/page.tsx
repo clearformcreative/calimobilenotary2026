@@ -8,7 +8,7 @@ import { services, siteInfo } from "@/content/site";
 export const metadata: Metadata = {
   title: "Mobile Notary Services | POA, Trusts & More",
   description:
-    "Mobile notary services in Los Angeles: power of attorney, trusts & wills, healthcare directives, I-9 verification, business notary. Call (323) 364-2121.",
+    "Mobile notary services in Los Angeles: power of attorney, trusts & wills, healthcare directives, I-9 verification, business notary. Call (818) 422-4420.",
   keywords: [
     "mobile notary services",
     "power of attorney notary",

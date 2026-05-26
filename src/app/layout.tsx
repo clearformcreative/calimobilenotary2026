@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Cali Mobile Notary",
   },
   description:
-    "Mobile notary services in Los Angeles & Southern California. Same-day appointments, travel to you. POA, trusts, I-9 verification. Call (323) 364-2121.",
+    "Mobile notary services in Los Angeles & Southern California. Same-day appointments, travel to you. POA, trusts, I-9 verification. Call (818) 422-4420.",
   keywords: [
     "mobile notary Los Angeles",
     "notary public near me",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mobile Notary Los Angeles | Cali Mobile Notary",
     description:
-      "Premium mobile notary services across Greater Los Angeles. Same-day appointments, clear pricing, we travel to you. Call (323) 364-2121.",
+      "Premium mobile notary services across Greater Los Angeles. Same-day appointments, clear pricing, we travel to you. Call (818) 422-4420.",
     url: "https://www.calimobilenotary.com",
     siteName: "Cali Mobile Notary",
     locale: "en_US",

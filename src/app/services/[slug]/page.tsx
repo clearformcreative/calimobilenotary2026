@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
 
   return {
     title: `${service.title} Notary Service Los Angeles | Cali Mobile Notary`,
-    description: `${service.description} Mobile service across Los Angeles. Same-day appointments available. Call (323) 364-2121.`,
+    description: `${service.description} Mobile service across Los Angeles. Same-day appointments available. Call (818) 422-4420.`,
     keywords: serviceKeywords[slug] || [],
     alternates: {
       canonical: `https://www.calimobilenotary.com/services/${slug}`,

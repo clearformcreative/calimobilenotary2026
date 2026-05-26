@@ -3,8 +3,8 @@ export const siteInfo = {
   domain: "www.calimobilenotary.com",
   tagline:
     "Premium mobile notary services with concierge care across Southern California.",
-  phoneDisplay: "(323) 364-2121",
-  phoneHref: "tel:+13233642121",
+  phoneDisplay: "(818) 422-4420",
+  phoneHref: "tel:+18184224420",
   email: "hello@calimobilenotary.com",
   address: "Serving Greater Los Angeles, CA",
   bookingUrl: "https://cal.com/cali-mobile-notary/appointment",

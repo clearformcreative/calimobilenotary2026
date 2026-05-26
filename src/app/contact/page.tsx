@@ -6,7 +6,7 @@ import { siteInfo } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact Us | Mobile Notary Los Angeles",
   description:
-    "Contact Cali Mobile Notary for mobile notary services in Los Angeles. Book online or call (323) 364-2121. Same-day appointments available.",
+    "Contact Cali Mobile Notary for mobile notary services in Los Angeles. Book online or call (818) 422-4420. Same-day appointments available.",
   keywords: [
     "contact mobile notary",
     "notary phone number Los Angeles",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Cali Mobile Notary | Los Angeles",
     description:
-      "Get in touch for mobile notary services. Book online or call (323) 364-2121.",
+      "Get in touch for mobile notary services. Book online or call (818) 422-4420.",
     url: "https://www.calimobilenotary.com/contact",
   },
 };

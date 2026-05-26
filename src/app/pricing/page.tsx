@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Mobile Notary Pricing | Clear Packages from $85",
   description:
-    "Transparent mobile notary pricing in Los Angeles. Packages from $85 include travel within service area. No hidden fees. Call (323) 364-2121 for a quote.",
+    "Transparent mobile notary pricing in Los Angeles. Packages from $85 include travel within service area. No hidden fees. Call (818) 422-4420 for a quote.",
   keywords: [
     "mobile notary cost",
     "notary fees Los Angeles",
