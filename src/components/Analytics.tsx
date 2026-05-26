@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GADS_ID = "AW-18189278709";
 
 export function Analytics() {
   const [consent, setConsent] = useState<"granted" | "denied" | null>(null);
@@ -21,21 +22,24 @@ export function Analytics() {
     return () => window.removeEventListener("cmn:consent", handler as EventListener);
   }, []);
 
-  if (!GA_ID || consent !== "granted") return null;
+  if (consent !== "granted") return null;
+
+  const loaderId = GA_ID || GADS_ID;
 
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${loaderId}`}
         strategy="afterInteractive"
       />
-      <Script id="ga4-init" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
           gtag('js', new Date());
-          gtag('config', '${GA_ID}', { anonymize_ip: true });
+          ${GA_ID ? `gtag('config', '${GA_ID}', { anonymize_ip: true });` : ""}
+          gtag('config', '${GADS_ID}');
         `}
       </Script>
     </>

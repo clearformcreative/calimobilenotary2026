@@ -37,4 +37,11 @@ export function trackBookingClick() {
     event_category: "conversion",
     event_label: "Booking Button Click",
   });
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: "AW-18189278709/D3M2CO-Qo7McEPW7qeFD",
+      value: 1.0,
+      currency: "USD",
+    });
+  }
 }

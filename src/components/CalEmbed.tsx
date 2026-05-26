@@ -69,6 +69,14 @@ export function CalEmbed() {
       hideEventTypeDetails: false,
       layout: "month_view",
     });
+
+    // @ts-expect-error Cal is defined dynamically
+    window.Cal.ns.inline("on", {
+      action: "bookingSuccessful",
+      callback: () => {
+        window.location.href = "/thank-you";
+      },
+    });
   }, []);
 
   return (
