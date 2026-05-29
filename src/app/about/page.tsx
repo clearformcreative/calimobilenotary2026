@@ -9,7 +9,7 @@ import { siteInfo } from "@/content/site";
 export const metadata: Metadata = {
   title: "About Us | Mobile Notary Los Angeles",
   description:
-    "Cali Mobile Notary delivers discreet, concierge-level mobile notary service across Los Angeles. Bonded, insured & background checked. Call (818) 422-4420.",
+    "Cali Mobile Notary delivers discreet, concierge-level mobile notary service across Los Angeles. Bonded & insured. Call (818) 422-4420.",
   keywords: [
     "mobile notary Los Angeles",
     "about Cali Mobile Notary",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Cali Mobile Notary | Los Angeles",
     description:
-      "Premium mobile notary services built on trust. Bonded, insured & background checked.",
+      "Premium mobile notary services built on trust. Bonded & insured.",
     url: "https://www.calimobilenotary.com/about",
   },
 };
@@ -93,9 +93,6 @@ export default function AboutPage() {
                 </p>
                 <p className="mt-2 text-sm text-brand-shadow/80">
                   {siteInfo.credentials.bondedInsured}
-                </p>
-                <p className="mt-2 text-sm text-brand-shadow/80">
-                  {siteInfo.credentials.backgroundChecked}
                 </p>
               </div>
               <div className="rounded-lg border border-brand-stone/70 bg-white/90 p-5 shadow-sm">

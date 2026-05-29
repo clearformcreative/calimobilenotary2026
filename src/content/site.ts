@@ -13,19 +13,17 @@ export const siteInfo = {
   hours: {
     weekday: "Mon - Thurs: 7:00AM - 11:00PM",
     friday: "Friday: 7:00AM - 5:00PM",
-    weekend: "Sat - Sun: 7:00AM - 11:00PM",
+    weekend: "Sunday: 7:00AM - 11:00PM",
     emergency: "Same-day appointments available",
   },
   credentials: {
     commission: "California Notary Commission #2439447",
     bondedInsured: "Bonded & Insured",
-    backgroundChecked: "Background Checked",
     experience: "10+ Years Experience",
   },
   trustBadges: [
     "Commissioned Notary",
     "Bonded & Insured",
-    "Background Checked",
     "Same-Day Availability",
     "Mobile Concierge Service",
   ],
@@ -117,7 +115,6 @@ export const pricingNotes = [
 export const certificationBadges = [
   "California Commissioned Notary",
   "Bonded & Insured",
-  "Background Screened",
   "E&O Insurance",
 ];
 

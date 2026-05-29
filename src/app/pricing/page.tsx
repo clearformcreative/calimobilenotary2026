@@ -121,8 +121,8 @@ export default function PricingPage() {
                   Credentialed and compliant
                 </h3>
                 <p className="mt-3 text-sm text-brand-shadow/80">
-                  Verified background checks, insured protection, and professional
-                  standards for every appointment.
+                  Insured protection and professional standards for every
+                  appointment.
                 </p>
               </div>
               <div className="grid gap-3">

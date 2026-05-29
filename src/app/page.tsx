@@ -55,28 +55,6 @@ const trustHighlights = [
     ),
   },
   {
-    label: "Background Checked",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
-        <circle
-          cx="10"
-          cy="10"
-          r="5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
-        <path
-          d="M14 14l5 5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
     label: "Same-Day Availability",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
@@ -232,7 +210,7 @@ export default function Home() {
       },
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Saturday", "Sunday"],
+        dayOfWeek: ["Sunday"],
         opens: "07:00",
         closes: "23:00",
       },
@@ -332,7 +310,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <FadeIn>
               <p className="inline-flex items-center gap-2 rounded-sm border border-brand-champagne/50 bg-brand-ink/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-champagne">
-                Commissioned • Bonded • Background Checked
+                Commissioned • Bonded • Insured
               </p>
             </FadeIn>
             <FadeIn delay={0.08}>
@@ -589,8 +567,8 @@ export default function Home() {
                   Credentialed and compliant
                 </h3>
                 <p className="mt-3 text-sm text-brand-shadow/80">
-                  Verified background checks, insured protection, and professional
-                  standards for every appointment.
+                  Insured protection and professional standards for every
+                  appointment.
                 </p>
               </div>
               <div className="grid gap-3">

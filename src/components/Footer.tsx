@@ -81,13 +81,13 @@ export function Footer() {
               {siteInfo.email}
             </a>
             <p>{siteInfo.hours.weekday}</p>
+            <p>{siteInfo.hours.friday}</p>
             <p>{siteInfo.hours.weekend}</p>
             <p className="text-brand-champagne">{siteInfo.hours.emergency}</p>
           </div>
           <div className="mt-5 space-y-2 text-xs uppercase tracking-[0.2em] text-brand-champagne">
             <p>{siteInfo.credentials.commission}</p>
             <p>{siteInfo.credentials.bondedInsured}</p>
-            <p>{siteInfo.credentials.backgroundChecked}</p>
           </div>
         </div>
       </div>
