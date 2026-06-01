@@ -61,7 +61,7 @@ function travelFee(roundTripMiles: number) {
   if (extra <= 0) {
     return { blocks: 0, fee: 0 };
   }
-  const blocks = Math.ceil(extra / TRAVEL_BLOCK_MILES);
+  const blocks = Math.round(extra / TRAVEL_BLOCK_MILES);
   return { blocks, fee: blocks * TRAVEL_BLOCK_FEE };
 }
 
@@ -526,7 +526,7 @@ export function InternalCalc() {
                 <div className="flex justify-between gap-3">
                   <span>
                     {extraMiles} mi ÷ {TRAVEL_BLOCK_MILES} mi ={" "}
-                    {(extraMiles / TRAVEL_BLOCK_MILES).toFixed(2)} → round up
+                    {(extraMiles / TRAVEL_BLOCK_MILES).toFixed(2)} → round to nearest
                   </span>
                   <span>
                     {result.travel.blocks} block
