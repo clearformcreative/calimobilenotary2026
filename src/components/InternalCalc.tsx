@@ -18,7 +18,10 @@ const PACKAGES = [
 const EXTRA_SIGNATURE_FEE = 15;
 
 // Travel: free within the service area, then a flat fee per block beyond it.
-const FREE_ROUND_TRIP_MILES = 50;
+// The free radius is 25 mi each way (50 mi round trip). Overage is billed on the
+// ONE-WAY distance beyond the radius — not the round trip — so a stop 50 mi past
+// the radius is charged for 50 extra miles, not 100.
+const FREE_ONE_WAY_MILES = 25;
 const TRAVEL_BLOCK_MILES = 25;
 const TRAVEL_BLOCK_FEE = 50;
 
@@ -53,10 +56,11 @@ function packageFor(signatures: number) {
 }
 
 function travelFee(roundTripMiles: number) {
-  if (!roundTripMiles || roundTripMiles <= FREE_ROUND_TRIP_MILES) {
+  const oneWayMiles = Math.round(roundTripMiles / 2);
+  const extra = oneWayMiles - FREE_ONE_WAY_MILES;
+  if (extra <= 0) {
     return { blocks: 0, fee: 0 };
   }
-  const extra = roundTripMiles - FREE_ROUND_TRIP_MILES;
   const blocks = Math.ceil(extra / TRAVEL_BLOCK_MILES);
   return { blocks, fee: blocks * TRAVEL_BLOCK_FEE };
 }
@@ -273,8 +277,9 @@ export function InternalCalc() {
   const activeTierIndex =
     matchedTier === -1 && signatures > 10 ? PACKAGES.length - 1 : matchedTier;
 
-  // Miles billed beyond the free service-area radius (for the travel math).
-  const extraMiles = Math.max(0, roundTripMiles - FREE_ROUND_TRIP_MILES);
+  // Travel is billed on the one-way distance beyond the free service radius.
+  const oneWayMiles = Math.round(roundTripMiles / 2);
+  const extraMiles = Math.max(0, oneWayMiles - FREE_ONE_WAY_MILES);
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.8fr] lg:gap-8">
@@ -492,9 +497,9 @@ export function InternalCalc() {
                 <span>Travel</span>
                 <span className="mt-0.5 block text-[11px] text-brand-ivory/45">
                   {hasLocation
-                    ? `${roundTripMiles} mi round trip`
+                    ? `${oneWayMiles} mi each way (${roundTripMiles} mi round trip)`
                     : "Awaiting location"}{" "}
-                  · first {FREE_ROUND_TRIP_MILES} mi free, then ${TRAVEL_BLOCK_FEE}
+                  · first {FREE_ONE_WAY_MILES} mi free, then ${TRAVEL_BLOCK_FEE}
                   /{TRAVEL_BLOCK_MILES} mi
                 </span>
               </div>
@@ -514,7 +519,7 @@ export function InternalCalc() {
               <div className="mt-2 space-y-0.5 rounded-sm bg-brand-ivory/5 px-3 py-2 text-[11px] leading-relaxed text-brand-ivory/60">
                 <div className="flex justify-between gap-3">
                   <span>
-                    {roundTripMiles} mi − {FREE_ROUND_TRIP_MILES} mi free
+                    {oneWayMiles} mi each way − {FREE_ONE_WAY_MILES} mi free
                   </span>
                   <span>{extraMiles} mi over</span>
                 </div>
