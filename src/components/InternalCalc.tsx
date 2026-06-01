@@ -61,7 +61,9 @@ function travelFee(roundTripMiles: number) {
   if (extra <= 0) {
     return { blocks: 0, fee: 0 };
   }
-  const blocks = Math.round(extra / TRAVEL_BLOCK_MILES);
+  // Round to the nearest whole block, but always bill at least one block once
+  // the stop is past the free radius (no free travel outside the service area).
+  const blocks = Math.max(1, Math.round(extra / TRAVEL_BLOCK_MILES));
   return { blocks, fee: blocks * TRAVEL_BLOCK_FEE };
 }
 
@@ -280,6 +282,10 @@ export function InternalCalc() {
   // Travel is billed on the one-way distance beyond the free service radius.
   const oneWayMiles = Math.round(roundTripMiles / 2);
   const extraMiles = Math.max(0, oneWayMiles - FREE_ONE_WAY_MILES);
+  // Exact (unrounded) block count, and whether the final count came from the
+  // "at least one block" floor rather than normal rounding.
+  const exactBlocks = extraMiles / TRAVEL_BLOCK_MILES;
+  const flooredToOne = extraMiles > 0 && Math.round(exactBlocks) === 0;
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.8fr] lg:gap-8">
@@ -499,8 +505,8 @@ export function InternalCalc() {
                   {hasLocation
                     ? `${oneWayMiles} mi each way (${roundTripMiles} mi round trip)`
                     : "Awaiting location"}{" "}
-                  · first {FREE_ONE_WAY_MILES} mi free, then ${TRAVEL_BLOCK_FEE}
-                  /{TRAVEL_BLOCK_MILES} mi
+                  · first {FREE_ONE_WAY_MILES} mi free, then ${TRAVEL_BLOCK_FEE} per{" "}
+                  {TRAVEL_BLOCK_MILES} mi
                 </span>
               </div>
               <span
@@ -525,8 +531,9 @@ export function InternalCalc() {
                 </div>
                 <div className="flex justify-between gap-3">
                   <span>
-                    {extraMiles} mi ÷ {TRAVEL_BLOCK_MILES} mi ={" "}
-                    {(extraMiles / TRAVEL_BLOCK_MILES).toFixed(2)} → round to nearest
+                    {extraMiles} mi over at {TRAVEL_BLOCK_MILES} mi per block ={" "}
+                    {exactBlocks.toFixed(2)}{" "}
+                    {flooredToOne ? "→ min 1 block" : "→ round to nearest"}
                   </span>
                   <span>
                     {result.travel.blocks} block
