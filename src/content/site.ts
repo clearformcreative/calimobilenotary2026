@@ -55,6 +55,8 @@ export type PricingPackage = {
   details: string;
   price: string;
   includes: string[];
+  featured?: boolean;
+  badge?: string;
 };
 
 export const pricingPackages: PricingPackage[] = [
@@ -73,22 +75,14 @@ export const pricingPackages: PricingPackage[] = [
     title: "Mid Package",
     details: "Up to 4 signatures",
     price: "$100",
+    featured: true,
+    badge: "Most Popular",
     includes: [
       "Travel within service area",
       "ID verification + journal entry",
       "Document review for completeness",
       "Up to 4 notarized signatures",
-    ],
-  },
-  {
-    title: "Extended Package",
-    details: "Up to 10 signatures",
-    price: "$115",
-    includes: [
-      "Travel within service area",
-      "ID verification + journal entry",
-      "Document review for completeness",
-      "Up to 10 notarized signatures",
+      "$15 per each additional signature after 4",
     ],
   },
 ];
@@ -107,8 +101,8 @@ export const pricingNotes = [
     description: "$25–$50 add-on for evenings or weekends.",
   },
   {
-    title: "State Fee",
-    description: "CA notary fee is $15 per signature, included in packages.",
+    title: "Additional Signatures",
+    description: "$15 per each additional signature after the first 4.",
   },
 ];
 

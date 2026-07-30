@@ -11,10 +11,9 @@ import { useMemo, useRef, useState } from "react";
 const PACKAGES = [
   { name: "Basic Package", maxSignatures: 2, price: 85 },
   { name: "Mid Package", maxSignatures: 4, price: 100 },
-  { name: "Extended Package", maxSignatures: 10, price: 115 },
 ];
 
-// Beyond the largest package, charge the CA state fee per extra signature.
+// Beyond the largest package (4 signatures), charge $15 per additional signature.
 const EXTRA_SIGNATURE_FEE = 15;
 
 // Travel: free within the service area, then a flat fee per block beyond it.
@@ -277,7 +276,7 @@ export function InternalCalc() {
     (p) => signatures >= 1 && signatures <= p.maxSignatures
   );
   const activeTierIndex =
-    matchedTier === -1 && signatures > 10 ? PACKAGES.length - 1 : matchedTier;
+    matchedTier === -1 && signatures > 4 ? PACKAGES.length - 1 : matchedTier;
 
   // Travel is billed on the one-way distance beyond the free service radius.
   const oneWayMiles = Math.round(roundTripMiles / 2);
@@ -343,9 +342,9 @@ export function InternalCalc() {
                   </div>
                 );
               })}
-              {signatures > 10 && (
+              {signatures > 4 && (
                 <p className="px-1 pt-0.5 text-xs text-brand-shadow/60">
-                  + ${EXTRA_SIGNATURE_FEE} per signature beyond 10 ({signatures - 10}{" "}
+                  + ${EXTRA_SIGNATURE_FEE} per signature beyond 4 ({signatures - 4}{" "}
                   extra).
                 </p>
               )}

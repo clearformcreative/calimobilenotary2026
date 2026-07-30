@@ -511,12 +511,21 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mx-auto mt-8 grid max-w-3xl gap-6 sm:grid-cols-2">
             {pricingPackages.map((pkg) => (
               <div
                 key={pkg.title}
-                className="rounded-lg border border-brand-stone/70 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-champagne hover:shadow-[0_18px_55px_rgba(199,166,106,0.2)]"
+                className={`relative flex flex-col rounded-lg border bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-[0_18px_55px_rgba(199,166,106,0.2)] ${
+                  pkg.featured
+                    ? "border-brand-champagne ring-1 ring-brand-champagne/40 shadow-[0_18px_55px_rgba(199,166,106,0.2)]"
+                    : "border-brand-stone/70 hover:border-brand-champagne"
+                }`}
               >
+                {pkg.badge && (
+                  <span className="absolute -top-3 left-6 rounded-full bg-brand-champagne px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-brand-ink shadow-sm">
+                    {pkg.badge}
+                  </span>
+                )}
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-champagne">
                   {pkg.title}
                 </p>

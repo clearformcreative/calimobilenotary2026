@@ -65,18 +65,27 @@ export default function PricingPage() {
 
       <section className="py-16">
         <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
             {pricingPackages.map((pkg) => (
               <div
                 key={pkg.title}
-                className="rounded-lg border border-brand-stone/70 bg-white/90 p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-champagne hover:shadow-[0_18px_55px_rgba(199,166,106,0.2)]"
+                className={`relative flex flex-col rounded-lg border bg-white/90 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-[0_18px_55px_rgba(199,166,106,0.2)] ${
+                  pkg.featured
+                    ? "border-brand-champagne ring-1 ring-brand-champagne/40 shadow-[0_18px_55px_rgba(199,166,106,0.2)]"
+                    : "border-brand-stone/70 hover:border-brand-champagne"
+                }`}
               >
+                {pkg.badge && (
+                  <span className="absolute -top-3 left-8 rounded-full bg-brand-champagne px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-brand-ink shadow-sm">
+                    {pkg.badge}
+                  </span>
+                )}
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-champagne">
                   {pkg.title}
                 </p>
-                <p className="mt-3 text-3xl font-semibold text-brand-ink">{pkg.price}</p>
+                <p className="mt-3 text-4xl font-semibold text-brand-ink">{pkg.price}</p>
                 <p className="mt-2 text-sm text-brand-shadow/80">{pkg.details}</p>
-                <ul className="mt-4 space-y-2 text-sm text-brand-shadow/80">
+                <ul className="mb-8 mt-5 space-y-2.5 text-sm text-brand-shadow/80">
                   {pkg.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-champagne" />
@@ -84,6 +93,16 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
+                <a
+                  href="/#book"
+                  className={`mt-auto inline-flex items-center justify-center rounded-sm px-5 py-3 text-sm font-semibold tracking-[0.12em] transition ${
+                    pkg.featured
+                      ? "bg-brand-champagne text-brand-ink hover:bg-brand-champagne-soft"
+                      : "border border-brand-ink/30 text-brand-ink hover:border-brand-champagne hover:text-brand-champagne"
+                  }`}
+                >
+                  Book This Package
+                </a>
               </div>
             ))}
           </div>
